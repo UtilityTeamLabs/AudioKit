@@ -27,12 +27,12 @@ open class AKAmplitudeTracker: AKNode, AKToggleable, AKComponent {
 //    } //in development
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted: Bool {
+    @objc open dynamic var isStarted: Bool {
         return internalAU?.isPlaying() ?? false
     }
 
     /// Detected amplitude
-    open dynamic var amplitude: Double {
+    @objc open dynamic var amplitude: Double {
         if let amp = internalAU?.amplitude {
             return Double(amp) / sqrt(2.0) * 2.0
         } else {
@@ -41,7 +41,7 @@ open class AKAmplitudeTracker: AKNode, AKToggleable, AKComponent {
     }
     
     /// Threshold amplitude
-    open dynamic var threshold: Double = 1 {
+    @objc open dynamic var threshold: Double = 1 {
         willSet {
             internalAU?.threshold = Float(newValue)
         }

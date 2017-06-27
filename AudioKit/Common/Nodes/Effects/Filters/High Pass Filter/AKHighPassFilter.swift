@@ -16,7 +16,7 @@ open class AKHighPassFilter: AKNode, AKToggleable, AUEffect {
     private var au: AUWrapper
 
     /// Cutoff Frequency (Hz) ranges from 10 to 22050 (Default: 6900)
-    open dynamic var cutoffFrequency: Double = 6_900 {
+    @objc open dynamic var cutoffFrequency: Double = 6_900 {
         didSet {
             cutoffFrequency = (10...22_050).clamp(cutoffFrequency)
             au[kHipassParam_CutoffFrequency] = cutoffFrequency
@@ -24,7 +24,7 @@ open class AKHighPassFilter: AKNode, AKToggleable, AUEffect {
     }
 
     /// Resonance (dB) ranges from -20 to 40 (Default: 0)
-    open dynamic var resonance: Double = 0 {
+    @objc open dynamic var resonance: Double = 0 {
         didSet {
             resonance = (-20...40).clamp(resonance)
             au[kHipassParam_Resonance] = resonance
@@ -32,7 +32,7 @@ open class AKHighPassFilter: AKNode, AKToggleable, AUEffect {
     }
 
     /// Dry/Wet Mix (Default 100)
-    open dynamic var dryWetMix: Double = 100 {
+    @objc open dynamic var dryWetMix: Double = 100 {
         didSet {
             dryWetMix = (0...100).clamp(dryWetMix)
             inputGain?.volume = 1 - dryWetMix / 100
@@ -48,7 +48,7 @@ open class AKHighPassFilter: AKNode, AKToggleable, AUEffect {
     fileprivate var internalEffect: AVAudioUnitEffect
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted = true
+    @objc open dynamic var isStarted = true
 
     // MARK: - Initialization
 

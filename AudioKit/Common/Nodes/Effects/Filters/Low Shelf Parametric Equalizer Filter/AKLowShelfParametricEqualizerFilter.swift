@@ -22,14 +22,14 @@ open class AKLowShelfParametricEqualizerFilter: AKNode, AKToggleable, AKComponen
     fileprivate var qParameter: AUParameter?
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = AKSettings.rampTime {
+    @objc open dynamic var rampTime: Double = AKSettings.rampTime {
         willSet {
             internalAU?.rampTime = newValue
         }
     }
 
     /// Corner frequency.
-    open dynamic var cornerFrequency: Double = 1_000 {
+    @objc open dynamic var cornerFrequency: Double = 1_000 {
         willSet {
             if cornerFrequency != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -43,7 +43,7 @@ open class AKLowShelfParametricEqualizerFilter: AKNode, AKToggleable, AKComponen
         }
     }
     /// Amount at which the corner frequency value shall be increased or decreased. A value of 1 is a flat response.
-    open dynamic var gain: Double = 1.0 {
+    @objc open dynamic var gain: Double = 1.0 {
         willSet {
             if gain != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -57,7 +57,7 @@ open class AKLowShelfParametricEqualizerFilter: AKNode, AKToggleable, AKComponen
         }
     }
     /// Q of the filter. sqrt(0.5) is no resonance.
-    open dynamic var q: Double = 0.707 {
+    @objc open dynamic var q: Double = 0.707 {
         willSet {
             if q != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -72,7 +72,7 @@ open class AKLowShelfParametricEqualizerFilter: AKNode, AKToggleable, AKComponen
     }
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted: Bool {
+    @objc open dynamic var isStarted: Bool {
         return internalAU?.isPlaying() ?? false
     }
 

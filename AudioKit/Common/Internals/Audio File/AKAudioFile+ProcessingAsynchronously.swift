@@ -63,15 +63,15 @@ extension AKAudioFile {
         fileprivate var UTI: CFString {
             switch self {
             case .wav:
-                return AVFileTypeWAVE as CFString
+                return AVFileType.wav as CFString
             case .aif:
-                return AVFileTypeAIFF as CFString
+                return AVFileType.aiff as CFString
             case .mp4:
-                return AVFileTypeAppleM4A as CFString
+                return AVFileType.m4a as CFString
             case .m4a:
-                return AVFileTypeAppleM4A as CFString
+                return AVFileType.m4a as CFString
             case .caf:
-                return AVFileTypeCoreAudioFormat as CFString
+                return AVFileType.caf as CFString
             }
         }
 
@@ -383,7 +383,7 @@ extension AKAudioFile {
 
             internalExportSession.outputURL = URL(fileURLWithPath: filePath)
             // Sets the output file encoding (avoid .wav encoded as m4a...)
-            internalExportSession.outputFileType = exportFormat.UTI as String
+            internalExportSession.outputFileType = AVFileType(rawValue: exportFormat.UTI as String as String)
 
             // In and OUT times triming settings
             let inFrame: Int64

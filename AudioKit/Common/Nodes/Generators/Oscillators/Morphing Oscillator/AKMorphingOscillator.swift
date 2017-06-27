@@ -28,14 +28,14 @@ open class AKMorphingOscillator: AKNode, AKToggleable, AKComponent {
     fileprivate var detuningMultiplierParameter: AUParameter?
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = AKSettings.rampTime {
+    @objc open dynamic var rampTime: Double = AKSettings.rampTime {
         willSet {
             internalAU?.rampTime = newValue
         }
     }
 
     /// In cycles per second, or Hz.
-    open dynamic var frequency: Double = 440 {
+    @objc open dynamic var frequency: Double = 440 {
         willSet {
             if frequency != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -50,7 +50,7 @@ open class AKMorphingOscillator: AKNode, AKToggleable, AKComponent {
     }
 
     /// Output Amplitude.
-    open dynamic var amplitude: Double = 1 {
+    @objc open dynamic var amplitude: Double = 1 {
         willSet {
             if amplitude != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -65,7 +65,7 @@ open class AKMorphingOscillator: AKNode, AKToggleable, AKComponent {
     }
 
     /// Index of the wavetable to use (fractional are okay).
-    open dynamic var index: Double = 0.0 {
+    @objc open dynamic var index: Double = 0.0 {
         willSet {
             let transformedValue = Float(newValue) / Float(waveformArray.count - 1)
             internalAU?.index = Float(transformedValue)
@@ -73,7 +73,7 @@ open class AKMorphingOscillator: AKNode, AKToggleable, AKComponent {
     }
 
     /// Frequency offset in Hz.
-    open dynamic var detuningOffset: Double = 0 {
+    @objc open dynamic var detuningOffset: Double = 0 {
         willSet {
             if detuningOffset != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -88,7 +88,7 @@ open class AKMorphingOscillator: AKNode, AKToggleable, AKComponent {
     }
 
     /// Frequency detuning multiplier
-    open dynamic var detuningMultiplier: Double = 1 {
+    @objc open dynamic var detuningMultiplier: Double = 1 {
         willSet {
             if detuningMultiplier != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -103,7 +103,7 @@ open class AKMorphingOscillator: AKNode, AKToggleable, AKComponent {
     }
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted: Bool {
+    @objc open dynamic var isStarted: Bool {
         return internalAU?.isPlaying() ?? false
     }
 

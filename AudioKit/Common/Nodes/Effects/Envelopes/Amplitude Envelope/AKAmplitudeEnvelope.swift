@@ -22,14 +22,14 @@ open class AKAmplitudeEnvelope: AKNode, AKToggleable, AKComponent {
     fileprivate var releaseDurationParameter: AUParameter?
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = AKSettings.rampTime {
+    @objc open dynamic var rampTime: Double = AKSettings.rampTime {
         willSet {
             internalAU?.rampTime = newValue
         }
     }
 
     /// Attack time
-    open dynamic var attackDuration: Double = 0.1 {
+    @objc open dynamic var attackDuration: Double = 0.1 {
         willSet {
             if attackDuration != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -43,7 +43,7 @@ open class AKAmplitudeEnvelope: AKNode, AKToggleable, AKComponent {
         }
     }
     /// Decay time
-    open dynamic var decayDuration: Double = 0.1 {
+    @objc open dynamic var decayDuration: Double = 0.1 {
         willSet {
             if decayDuration != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -57,7 +57,7 @@ open class AKAmplitudeEnvelope: AKNode, AKToggleable, AKComponent {
         }
     }
     /// Sustain Level
-    open dynamic var sustainLevel: Double = 1.0 {
+    @objc open dynamic var sustainLevel: Double = 1.0 {
         willSet {
             if sustainLevel != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -71,7 +71,7 @@ open class AKAmplitudeEnvelope: AKNode, AKToggleable, AKComponent {
         }
     }
     /// Release time
-    open dynamic var releaseDuration: Double = 0.1 {
+    @objc open dynamic var releaseDuration: Double = 0.1 {
         willSet {
             if releaseDuration != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -86,7 +86,7 @@ open class AKAmplitudeEnvelope: AKNode, AKToggleable, AKComponent {
     }
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted: Bool {
+    @objc open dynamic var isStarted: Bool {
         return internalAU?.isPlaying() ?? false
     }
 

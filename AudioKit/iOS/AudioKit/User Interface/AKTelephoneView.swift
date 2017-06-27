@@ -190,9 +190,9 @@ open class AKTelephoneView: UIView {
         let busyTextStyle = NSMutableParagraphStyle()
         busyTextStyle.alignment = .center
 
-        let busyTextFontAttributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.labelFontSize),
-                                      NSForegroundColorAttributeName: UIColor.white,
-                                      NSParagraphStyleAttributeName: busyTextStyle]
+        let busyTextFontAttributes = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.labelFontSize),
+                                      NSAttributedStringKey.foregroundColor: UIColor.white,
+                                      NSAttributedStringKey.paragraphStyle: busyTextStyle]
 
         let busyTextTextHeight: CGFloat = busyTextTextContent.boundingRect(
             with: CGSize(width: busyTextRect.width, height: CGFloat.infinity),
@@ -214,9 +214,9 @@ open class AKTelephoneView: UIView {
         let readoutStyle = NSMutableParagraphStyle()
         readoutStyle.alignment = .center
 
-        let readoutFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 48),
-                                     NSForegroundColorAttributeName: UIColor.black,
-                                     NSParagraphStyleAttributeName: readoutStyle]
+        let readoutFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 48),
+                                     NSAttributedStringKey.foregroundColor: UIColor.black,
+                                     NSAttributedStringKey.paragraphStyle: readoutStyle]
 
         let readoutTextHeight: CGFloat = readoutTextContent.boundingRect(
             with: CGSize(width: readoutRect.width, height: CGFloat.infinity),
@@ -260,9 +260,9 @@ open class AKTelephoneView: UIView {
         let lettersStyle = NSMutableParagraphStyle()
         lettersStyle.alignment = .center
 
-        let lettersFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11),
-                                     NSForegroundColorAttributeName: textColor,
-                                     NSParagraphStyleAttributeName: lettersStyle]
+        let lettersFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 11),
+                                     NSAttributedStringKey.foregroundColor: textColor,
+                                     NSAttributedStringKey.paragraphStyle: lettersStyle]
 
         let lettersTextHeight: CGFloat = NSString(string: text).boundingRect(
             with: CGSize(width: lettersRect.width, height: CGFloat.infinity),
@@ -283,9 +283,9 @@ open class AKTelephoneView: UIView {
         let numberStyle = NSMutableParagraphStyle()
         numberStyle.alignment = .center
 
-        let numberFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 48),
-                                    NSForegroundColorAttributeName: textColor,
-                                    NSParagraphStyleAttributeName: numberStyle]
+        let numberFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 48),
+                                    NSAttributedStringKey.foregroundColor: textColor,
+                                    NSAttributedStringKey.paragraphStyle: numberStyle]
 
         let numberTextHeight: CGFloat = NSString(string: numeral).boundingRect(
             with: CGSize(width: numberRect.width, height: CGFloat.infinity),
@@ -329,9 +329,9 @@ open class AKTelephoneView: UIView {
         let numberStyle = NSMutableParagraphStyle()
         numberStyle.alignment = .center
 
-        let numberFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 48),
-                                    NSForegroundColorAttributeName: textColor,
-                                    NSParagraphStyleAttributeName: numberStyle]
+        let numberFontAttributes = [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 48),
+                                    NSAttributedStringKey.foregroundColor: textColor,
+                                    NSAttributedStringKey.paragraphStyle: numberStyle]
 
         let numberTextHeight: CGFloat = NSString(string: numeral).boundingRect(
             with: CGSize(width: numberRect.width, height: CGFloat.infinity),

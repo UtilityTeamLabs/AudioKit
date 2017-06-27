@@ -28,14 +28,14 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     fileprivate var lfoBPMParameter: AUParameter?
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = AKSettings.rampTime {
+    @objc open dynamic var rampTime: Double = AKSettings.rampTime {
         willSet {
             internalAU?.rampTime = rampTime
         }
     }
 
     /// Notch Minimum Frequency
-    open dynamic var notchMinimumFrequency: Double = 100 {
+    @objc open dynamic var notchMinimumFrequency: Double = 100 {
         willSet {
             if notchMinimumFrequency != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -50,7 +50,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Notch Maximum Frequency
-    open dynamic var notchMaximumFrequency: Double = 800 {
+    @objc open dynamic var notchMaximumFrequency: Double = 800 {
         willSet {
             if notchMaximumFrequency != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -65,7 +65,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Between 10 and 5000
-    open dynamic var notchWidth: Double = 1_000 {
+    @objc open dynamic var notchWidth: Double = 1_000 {
         willSet {
             if notchWidth != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -80,7 +80,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Between 1.1 and 4
-    open dynamic var notchFrequency: Double = 1.5 {
+    @objc open dynamic var notchFrequency: Double = 1.5 {
         willSet {
             if notchFrequency != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -95,7 +95,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// 1 or 0
-    open dynamic var vibratoMode: Double = 1 {
+    @objc open dynamic var vibratoMode: Double = 1 {
         willSet {
             if vibratoMode != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -110,7 +110,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Between 0 and 1
-    open dynamic var depth: Double = 1 {
+    @objc open dynamic var depth: Double = 1 {
         willSet {
             if depth != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -125,7 +125,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Between 0 and 1
-    open dynamic var feedback: Double = 0 {
+    @objc open dynamic var feedback: Double = 0 {
         willSet {
             if feedback != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -140,7 +140,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// 1 or 0
-    open dynamic var inverted: Double = 0 {
+    @objc open dynamic var inverted: Double = 0 {
         willSet {
             if inverted != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -155,7 +155,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Between 24 and 360
-    open dynamic var lfoBPM: Double = 30 {
+    @objc open dynamic var lfoBPM: Double = 30 {
         willSet {
             if lfoBPM != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -170,7 +170,7 @@ open class AKPhaser: AKNode, AKToggleable, AKComponent {
     }
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted: Bool {
+    @objc open dynamic var isStarted: Bool {
         return internalAU?.isPlaying() ?? false
     }
 

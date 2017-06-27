@@ -22,7 +22,7 @@ open class AKThreePoleLowpassFilter: AKNode, AKToggleable, AKComponent {
     fileprivate var resonanceParameter: AUParameter?
 
     /// Ramp Time represents the speed at which parameters are allowed to change
-    open dynamic var rampTime: Double = AKSettings.rampTime {
+    @objc open dynamic var rampTime: Double = AKSettings.rampTime {
         willSet {
             internalAU?.rampTime = newValue
         }
@@ -30,7 +30,7 @@ open class AKThreePoleLowpassFilter: AKNode, AKToggleable, AKComponent {
 
     /// Distortion amount.  Zero gives a clean output. Greater than zero adds tanh distortion controlled by the
     /// filter parameters, in such a way that both low cutoff and high resonance increase the distortion amount.
-    open dynamic var distortion: Double = 0.5 {
+    @objc open dynamic var distortion: Double = 0.5 {
         willSet {
             if distortion != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -44,7 +44,7 @@ open class AKThreePoleLowpassFilter: AKNode, AKToggleable, AKComponent {
         }
     }
     /// Filter cutoff frequency in Hertz.
-    open dynamic var cutoffFrequency: Double = 1_500 {
+    @objc open dynamic var cutoffFrequency: Double = 1_500 {
         willSet {
             if cutoffFrequency != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -59,7 +59,7 @@ open class AKThreePoleLowpassFilter: AKNode, AKToggleable, AKComponent {
     }
     /// Resonance. Usually a value in the range 0-1. A value of 1.0 will self oscillate at the cutoff frequency.
     /// Values slightly greater than 1 are possible for more sustained oscillation and an “overdrive” effect.
-    open dynamic var resonance: Double = 0.5 {
+    @objc open dynamic var resonance: Double = 0.5 {
         willSet {
             if resonance != newValue {
                 if internalAU?.isSetUp() ?? false {
@@ -74,7 +74,7 @@ open class AKThreePoleLowpassFilter: AKNode, AKToggleable, AKComponent {
     }
 
     /// Tells whether the node is processing (ie. started, playing, or active)
-    open dynamic var isStarted: Bool {
+    @objc open dynamic var isStarted: Bool {
         return internalAU?.isPlaying() ?? false
     }
 

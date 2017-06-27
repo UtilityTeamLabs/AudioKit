@@ -139,9 +139,10 @@
         let nameLabelStyle = NSMutableParagraphStyle()
         nameLabelStyle.alignment = .left
 
-        let nameLabelFontAttributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                                       NSForegroundColorAttributeName: textColor,
-                                       NSParagraphStyleAttributeName: nameLabelStyle] as [String : Any]
+        let nameLabelFontAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: fontSize),
+            .foregroundColor: textColor,
+            .paragraphStyle: nameLabelStyle]
 
         let nameLabelInset: CGRect = nameLabelRect.insetBy(dx: 10, dy: 0)
         let nameLabelTextHeight: CGFloat = NSString(string: propertyName).boundingRect(
@@ -164,9 +165,10 @@
         let valueLabelStyle = NSMutableParagraphStyle()
         valueLabelStyle.alignment = .right
 
-        let valueLabelFontAttributes = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: fontSize),
-                                        NSForegroundColorAttributeName: textColor,
-                                        NSParagraphStyleAttributeName: valueLabelStyle] as [String : Any]
+        let valueLabelFontAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont.boldSystemFont(ofSize: fontSize),
+            .foregroundColor: textColor,
+            .paragraphStyle: valueLabelStyle]
 
         let valueLabelInset: CGRect = valueLabelRect.insetBy(dx: 10, dy: 0)
         let valueLabelTextHeight: CGFloat = NSString(string: currentValueText).boundingRect(
